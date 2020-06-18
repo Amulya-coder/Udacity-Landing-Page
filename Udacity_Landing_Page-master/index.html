@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM Manipulation</title>
+    <!-- Load Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">
+    <!-- Load Styles -->
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- Performance script -->
+    <script>
+        const startTimeDOM = performance.now();
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('the DOM is ready to be interacted with!');
+            const endTimeDOM = performance.now();
+            console.log(`DOM loaded in ${(endTimeDOM - startTimeDOM).toPrecision(3)}. (In the head element)`);
+        });
+    </script>
+</head>
+
+<body>
+    <!-- HTML Follows BEM naming conventions
+  IDs are only used for sections to connect menu achors to sections -->
+    <header class="page__header">
+        <nav class="navbar__menu">
+            <!-- Navigation starts as empty UL that will be populated with JS -->
+            <ul id="navbar__list"></ul>
+        </nav>
+    </header>
+    <main>
+        <header class="main__hero">
+            <h1> Dynamic Landing Page </h1>
+        </header>
+        <!-- Each Section has an ID (used for the anchor) and
+    a data attribute that will populate the li node.
+    Adding more sections will automatically populate nav.
+    The first section is set to active class by default -->
+        <section id="section1" data-nav="Section 1" class="your-active-class">
+            <div class="landing__container">
+                <h2>Section 1</h2>
+                <p>The Demand Gen Report statistic in the copy isn’t “recent” like it states — it’s from before 2016, while the copyright date on this page is 2017.
+                The image of the white paper provides visitors with a preview of what they can expect to receive by downloading the white paper.
+                The contrasting color of the form stands out and draws attention, enticing visitors to complete it.
+                The unchecked opt-in box ensures that prospects who opt-in want to receive emails from Oracle. Sed leo nunc, pharetra et elementum non, faucibus
+                The company logo and navigation at the top of the page could potentially remove visitors from the page without downloading the white paper.
+                The small copy on and beneath the form fields is difficult to read.
+                The white CTA button doesn’t stand out as much as it could because there is white at the top and bottom of the page.
+                Exit links in the footer provide visitors with even more ways off the page.    </p>
+
+                <p>The Hire logo in the top left corner immediately lets visitors know where they are when they land on the page. The fact that it’s not hyperlinked also won’t let people click away making this a great post-click landing page.</p>
+            </div>
+        </section>
+        <section id="section2" data-nav="Section 2">
+            <div class="landing__container">
+                <h2>Section 2</h2>
+                <p>Message match could be improved. I was taken to this post-click landing page from a Hire webinar promotion with a CTA button encouraging visitors to “Sign Up” for the “upcoming webinar”. The post-click landing page does not mention a webinar at all, but instead, promotes an on-demand demo. If Google Hire considers their webinar and demo to be the same thing, increasing the message match between the two pages would likely diminish any confusion in visitors.
+                14 form fields is a lot, even for the consideration stage of the marketing funnel. Breaking this up into a multi-step form could reduce form friction and result in more conversions.
+                The turquoise CTA button is similar to the other shade of blue on the page. Making it more contrasting, like orange, would make it “pop” more.
+                The page is unbalanced. Including an additional post-click landing page element to the left of the bottom of the form, such as a customer testimonial or an engaging image, could make the page more aesthetically pleasing.
+                </p>
+
+                <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit,
+                    vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum
+                    consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
+            </div>
+        </section>
+        <section id="section3" data-nav="Section 3">
+            <div class="landing__container">
+                <h2>Section 3</h2>
+                <p>The Uber logo at the top of the page immediately lets visitors know where they are. The fact that it’s not linked to the homepage acting as an exit link is also a plus.
+                5 form fields are appropriate for a signup page, especially since they don’t ask for very personal information.
+                The optional promo code field is smart because it doesn’t appear unless prospects click, keeping the form limited to 5 fields.
+                The green CTA button stands out because there’s no other green on the page.
+                The arrow on the CTA button acts as a directional cue, indicating that visitors should click to see what’s on the other side of this post-click landing page.</p>
+
+                <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit,
+                    vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum
+                    consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
+            </div>
+        </section>
+        <section id="section4" data-nav="Section 4">
+            <div class="landing__container">
+                <h2>Section 4</h2>
+                <p>The headline uses bold formatting to highlight the value proposition.
+                   Encapsulating the form with color contrast makes it attention-grabbing.
+                   The red CTA buttons contrast and stand out on the page, likely increasing conversions.
+                   The “Investing through LendingClub” section provides the main benefits of partnering with the company, without filling the page with overwhelming amounts of copy. Plus, the specific percentages of investments serve as social proof.
+                   The company logos also act as social proof and let visitors know that many big-name brands recognize and trust LendingClub.
+                   Multiple CTA buttons provide prospects several chances to convert on the offer.</p>
+
+                <p>Multiple exit links — the LendingClub logo, “terms of use,” “Learn more,” several words in the fine print, and the footer navigation — could remove visitors from the page without converting.
+                Shifting the direction of the man’s eyes in the photo to look at the lead capture form might subconsciously encourage more visitors to complete it.</p>
+            </div>
+        </section>
+        <!-- TEMPLATE FOR NEW SECTION -->
+        <template id="newSection">
+            <section id="section" data-nav="Section ">
+                <div class="landing__container">
+                    <h2>Section </h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus
+                        pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget
+                        lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac
+                        tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar
+                        quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in
+                        mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum
+                        non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in
+                        tellus. Sed congue et odio sed euismod.</p>
+
+                    <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet
+                        velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum
+                        fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor
+                        mollis non.</p>
+                </div>
+            </section>
+        </template>
+    </main>
+    <footer class="page__footer">
+        <p>&copy Udacity</p>
+
+        <!-- top button -->
+        <ul>
+            <li class="top__link">
+                <a href="#top" id="go_top_button">Go Top</a>
+            </li>
+        </ul>
+    </footer>
+
+    <script src="JS/app.js"></script>
+</body>
+
+</html>
